@@ -1,0 +1,15 @@
+[
+{
+  "modid": "tinkersoddities",
+  "name": "Tinkers Oddities",
+  "description": "Add Tinkers'Construct Utils functions to Crafttweaker",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Mrthomas20121"],
+  "credits": "Mrthomas20121",
+  "logoFile": "",
+  "screenshots": []
+}
+]
