@@ -18,86 +18,8 @@ import mrthomas20121.biolib.util.Utils;
 @ZenRegister
 public class Oddities
 {
-    @ZenMethod
-    public static void addRepairItem(String material, IItemStack stack, int amount)
+    public Builder getMaterial(String material)
     {
-        CraftTweakerAPI.apply(new IAction()
-        {
-            @Override
-            public void apply()
-            {
-                Utils.addRepairMaterial(material, InputHelper.toStack(stack), amount);
-            }
-
-            @Override
-            public String describe()
-            {
-                return "Added "+stack.getDisplayName()+" to "+material;
-            }
-        });
-    }
-
-    @ZenMethod
-    public static void setRepresentativeItem(String material, IOreDictEntry oredict)
-    {
-        Material mat = Utils.getMaterial(material);
-        CraftTweakerAPI.apply(new IAction()
-        {
-            @Override
-            public void apply()
-            {
-                mat.setRepresentativeItem(InputHelper.toString(oredict));
-            }
-
-            @Override
-            public String describe()
-            {
-                return "Set "+InputHelper.toString(oredict)+" the representative item for "+material;
-            }
-        });
-    }
-    @ZenMethod
-    public static void setRepresentativeItem(String material, IItemStack stack)
-    {
-        Material mat = Utils.getMaterial(material);
-        CraftTweakerAPI.apply(new IAction()
-        {
-            @Override
-            public void apply()
-            {
-                mat.setRepresentativeItem(InputHelper.toStack(stack));
-            }
-
-            @Override
-            public String describe()
-            {
-                return "Set "+stack.getDisplayName()+" the representative item for "+material;
-            }
-        });
-    }
-    @ZenMethod
-    public static ILiquidStack getFluid(String material)
-    {
-        Material mat = Utils.getMaterial(material);
-        return InputHelper.toILiquidStack(new FluidStack(mat.getFluid(), 1));
-    }
-    @ZenMethod
-    public static void setFluid(String material, ILiquidStack stack)
-    {
-        Material mat = Utils.getMaterial(material);
-        CraftTweakerAPI.apply(new IAction()
-        {
-            @Override
-            public void apply()
-            {
-                mat.setFluid(InputHelper.toFluid(stack).getFluid());
-            }
-
-            @Override
-            public String describe()
-            {
-                return "Set "+stack.getDisplayName()+" the fluid for "+material;
-            }
-        });
+        return new Builder(material);
     }
 }
